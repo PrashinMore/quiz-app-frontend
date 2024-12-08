@@ -29,9 +29,9 @@ function Quiz() {
         }
 
         const response = await axios.get(
-          `http://localhost:5000/api/questions?topics=${selectedTopics.join(
-            ","
-          )}`,
+          `${
+            process.env.REACT_APP_API_URL
+          }/questions?topics=${selectedTopics.join(",")}`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`
@@ -61,7 +61,7 @@ function Quiz() {
   const handleSubmit = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/questions/check",
+        `${process.env.REACT_APP_API_URL}/api/questions/check`,
         { answers },
         {
           headers: {
