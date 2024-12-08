@@ -61,7 +61,7 @@ function Quiz() {
   const handleSubmit = async () => {
     try {
       const response = await axios.post(
-        `${process.env.REACT_APP_API_URL}/api/questions/check`,
+        `${process.env.REACT_APP_API_URL}/questions/check`,
         { answers },
         {
           headers: {
