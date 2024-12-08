@@ -19,12 +19,15 @@ function Register() {
       });
       navigate("/login");
     } catch (err) {
-      if (error.response?.data?.details) {
-        setError(error.response.data.details);
-      } else if (error.response?.data?.error) {
-        setError(error.response.data.error);
+      console.log("Error registering:", err);
+
+      if (err.response?.data?.details) {
+        setError(err.response.data.details);
+      } else if (err.response?.data?.error) {
+        setError(err.response.data.error);
+      } else {
+        setError("Registration failed");
       }
-      setError("Registration failed");
     }
   };
 
